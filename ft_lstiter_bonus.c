@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcharfao <jcharfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 06:57:41 by jcharfao          #+#    #+#             */
-/*   Updated: 2024/05/14 20:54:37 by jcharfao         ###   ########.fr       */
+/*   Created: 2024/05/15 15:10:47 by jcharfao          #+#    #+#             */
+/*   Updated: 2024/05/15 15:35:24 by jcharfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *conetnt)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list *newnodo;
+	t_list *tmp;
 	
-	newnodo = (t_list *)malloc(sizeof(t_list));
-	if (!newnodo)
-		return (NULL);
-	newnodo->content = (void *)conetnt;
-	return (newnodo);
+	tmp = lst;
+	while(tmp)
+	{
+		f(tmp->content);
+		tmp = tmp->next;
+	}
 }

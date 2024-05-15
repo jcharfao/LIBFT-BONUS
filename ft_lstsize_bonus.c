@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcharfao <jcharfao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 06:57:41 by jcharfao          #+#    #+#             */
-/*   Updated: 2024/05/14 20:54:37 by jcharfao         ###   ########.fr       */
+/*   Created: 2024/05/13 16:28:44 by jcharfao          #+#    #+#             */
+/*   Updated: 2024/05/14 20:54:46 by jcharfao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *conetnt)
+int	ft_lstsize(t_list *lst)
 {
-	t_list *newnodo;
-	
-	newnodo = (t_list *)malloc(sizeof(t_list));
-	if (!newnodo)
-		return (NULL);
-	newnodo->content = (void *)conetnt;
-	return (newnodo);
+	size_t	i;
+
+	i= 0;
+	while (lst != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }
